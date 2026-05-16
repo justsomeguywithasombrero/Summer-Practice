@@ -59,13 +59,11 @@ public class ContactBook
             contactList.remove(pos);
         }
 
-        else if(userInput.toLowerCase().equals("n"))
-        {
-            //File logic goes here 
+        //File logic goes here 
             try
             {
                 File fileName = new File("Week_1_Project/ContactList.txt");
-                FileWriter fileWriter = new FileWriter("ContactList.txt");
+                FileWriter fileWriter = new FileWriter("ContactList.txt",true);
                 int index = 0;
                 while(index < contactList.size())
                 {
@@ -81,7 +79,6 @@ public class ContactBook
             {
 
             } 
-        }
 
         scan.close();
 
