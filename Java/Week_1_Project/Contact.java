@@ -15,7 +15,7 @@ public class Contact
     }
     public void setNumber(String newNumber)
     {
-        this.Name = newNumber;
+        this.Number = newNumber;
     }
 
     //Acessors
