@@ -11,5 +11,10 @@ public class StudentMain
         student2.displayInfo();
         student3.displayInfo();
         student4.displayInfo();
+
+        student4.setName("Christina");
+        student4.setAge(22);
+        student4.setCourse("Bio-medical Engineering");
+        student4.displayInfo();
     }
 }
