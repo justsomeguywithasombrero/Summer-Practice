@@ -5,9 +5,11 @@ public class StudentMain
         Student student1 = new Student("Charles",25, "Engineering");
         Student student2 = new Student("Mary",20, "Biology");
         Student student3 = new Student("Peter",23, "Mathematics");
+        Student student4 = new Student();
 
         student1.displayInfo();
         student2.displayInfo();
         student3.displayInfo();
+        student4.displayInfo();
     }
 }
