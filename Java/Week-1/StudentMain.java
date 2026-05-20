@@ -6,11 +6,15 @@ public class StudentMain
         Student student2 = new Student("Mary",20, "Biology");
         Student student3 = new Student("Peter",23, "Mathematics");
         Student student4 = new Student();
+        GradStudent gradStudent1 = new GradStudent("Korey",27,"Environmental Science","The impact of greenHouse gasses on rising cases of dementia");
+        PartTimeStudent partTimeStudent1 = new PartTimeStudent("Maya",26,"Physics","Tutor");
 
         student1.displayInfo();
         student2.displayInfo();
         student3.displayInfo();
         student4.displayInfo();
+        gradStudent1.displayInfo();
+        partTimeStudent1.displayInfo();
 
         student4.setName("Christina");
         student4.setAge(22);
