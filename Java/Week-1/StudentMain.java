@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class StudentMain
 {
     public static void main(String[] args)
@@ -8,6 +10,14 @@ public class StudentMain
         Student student4 = new Student();
         GradStudent gradStudent1 = new GradStudent("Korey",27,"Environmental Science","The impact of greenHouse gasses on rising cases of dementia");
         PartTimeStudent partTimeStudent1 = new PartTimeStudent("Maya",26,"Physics","Tutor");
+
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student4);
+        students.add(gradStudent1);
+        students.add(partTimeStudent1);
 
         student1.displayInfo();
         student2.displayInfo();
@@ -20,5 +30,10 @@ public class StudentMain
         student4.setAge(22);
         student4.setCourse("Bio-medical Engineering");
         student4.displayInfo();
+
+        for(Student student: students)
+        {
+            student.displayInfo();
+        }
     }
 }

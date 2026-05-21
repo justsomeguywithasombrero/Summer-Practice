@@ -21,7 +21,7 @@ public class PartTimeStudent extends Student
         this.jobTitle = jobTitle;
     }
 
-    //Accesspr
+    //Accessor
     public String getJobTitle()
     {
         return this.jobTitle;
