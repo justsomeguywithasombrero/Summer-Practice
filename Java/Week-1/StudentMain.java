@@ -4,10 +4,10 @@ public class StudentMain
 {
     public static void main(String[] args)
     {
-        Student student1 = new Student("Charles",25, "Engineering");
-        Student student2 = new Student("Mary",20, "Biology");
-        Student student3 = new Student("Peter",23, "Mathematics");
-        Student student4 = new Student();
+        Student student1 = new RegularStudent("Charles",25, "Engineering");
+        Student student2 = new RegularStudent("Mary",20, "Biology");
+        Student student3 = new RegularStudent("Peter",23, "Mathematics");
+        Student student4 = new RegularStudent();
         GradStudent gradStudent1 = new GradStudent("Korey",27,"Environmental Science","The impact of greenHouse gasses on rising cases of dementia");
         PartTimeStudent partTimeStudent1 = new PartTimeStudent("Maya",26,"Physics","Tutor");
 
@@ -35,5 +35,6 @@ public class StudentMain
         {
             student.displayInfo();
         }
+        gradStudent1.enroll("January 2026");
     }
 }

@@ -1,4 +1,4 @@
-public class GradStudent extends Student
+public class GradStudent extends Student implements Enrollable
 {
     private String thesis;
 
@@ -22,5 +22,10 @@ public class GradStudent extends Student
     public String getThesis()
     {
         return this.thesis;
+    }
+    @Override
+    public void enroll(String semester)
+    {
+        System.out.println(super.getName()+" enrolled for "+semester);
     }
 }
