@@ -12,7 +12,8 @@ public class LibraryMain
         System.out.println("3.Return");
         System.out.println("4.Add book");
         System.out.println("5.Display All");
-        System.out.println("6.Exit");
+        System.out.println("6.Remove a specific book");
+        System.out.println("7.Exit");
         System.out.print("Enter your choice: ");
         int choice = scan.nextInt();
         return choice;
@@ -27,7 +28,7 @@ public class LibraryMain
         Member member = new Member("Katie", "M001");
         boolean found = false;
         int choice = libMain.Menu(scan);
-        while(choice != 6)
+        while(choice != 7)
         {
             switch(choice)
             {
@@ -100,6 +101,14 @@ public class LibraryMain
                             System.out.println("IsAvailable ?: "+ displayBook.getIsAvailable());
                         }
                         break;
+
+                case 6: scan.nextLine();
+                        System.out.print("Enter the title of the book you wish to remove: ");
+                        String target = scan.nextLine();
+                        catalogue = librarian.removeBook(catalogue,target);
+                        break;
+                        
+
                 default: System.out.println("Something Unknow has occurred");
                          break;
             }
