@@ -32,7 +32,9 @@ public class LibraryMain
         {
             switch(choice)
             {
-                case 1: //Clear the input buffer just in case removes the risk of junk messing with input - Sombrero
+                case 1: try
+                        {
+                            //Clear the input buffer just in case removes the risk of junk messing with input - Sombrero
                         scan.nextLine();
                         System.out.print("Enter the title of the book you wish to find: ");
                         String searchTitle = scan.nextLine();
@@ -52,24 +54,51 @@ public class LibraryMain
                         }
                         if(!found)
                         {
-                            System.out.println("There is currently no book with a matching title in our catalogue");
+                            throw new BookNotFoundException("There is currently no book with a matching title in our catalogue");
+                        }
+                        break;
+                        }
+                        catch(BookNotFoundException noBook)
+                        {
+                            System.out.println(noBook.getMessage());
                         }
                         break;
 
-                case 2: scan.nextLine();
-                        System.out.print("Enter the title of the book you wish to borrow: ");
-                        String bTitle = scan.nextLine();
-                        for(Book Bbook: catalogue)
+                case 2: try
                         {
-                            if(Bbook.getTitle().toLowerCase().equals(bTitle.toLowerCase()) && Bbook.getIsAvailable() == true)
+                            scan.nextLine();
+                            System.out.print("Enter the title of the book you wish to borrow: ");
+                            String bTitle = scan.nextLine();
+                            for(Book Bbook: catalogue)
                             {
-                                Bbook.setIsAvailable(false);
-                                System.out.println("The book was borrowed successfully !");
-                                break;
+                                if(Bbook.getTitle().toLowerCase().equals(bTitle.toLowerCase()) && Bbook.getIsAvailable() == true)
+                                {
+                                    found = true;
+                                    Bbook.setIsAvailable(false);
+                                    System.out.println("The book was borrowed successfully !");
+                                    break;
+                                }
+                                else  if(Bbook.getTitle().toLowerCase().equals(bTitle.toLowerCase()) && Bbook.getIsAvailable() == false)
+                                {
+                                    throw new BookUnavailableException("The book you requested is currently unavailable");
+                                }
                             }
+                            if(!found)
+                            {
+                                throw new BookNotFoundException("There is currently no book with a matching title in our catalogue");
+                            }
+                            break;
                         }
-                    
+                        catch(BookNotFoundException cantBorrow)
+                        {
+                            System.out.println(cantBorrow.getMessage());
+                        }
+                        catch(BookUnavailableException bookUnavailable)
+                        {
+                            System.out.println(bookUnavailable.getMessage());
+                        }
                         break;
+                        
                 case 3: scan.nextLine();
                         System.out.print("Enter the title of the book you wish to return: ");
                         String rTitle = scan.nextLine();
@@ -127,11 +156,16 @@ public class LibraryMain
             }
             fileWriter.flush();
             fileWriter.close();
+           
             
         }
         catch(IOException e)
         {
-
+            e.printStackTrace();
+        }
+        finally
+        {
+          System.out.println("File operation complete");
         }
 
     }
